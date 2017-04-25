@@ -480,7 +480,7 @@ attempting to find an unencrypted version of the file by fuzzing the original UR
 
 The decryption of the firmware file can be done by using [epk2extract](https://github.com/openlgtv/epk2extract). The resulting directory structure is [here](https://raw.githubusercontent.com/daniel-ge/h4ck/master/lg_webOS/_firmware/tree.md).
 
-The installation of an LG app works as follows: first, the TV downloads the app package file, and second it retrieves the license information (as stated [above](#license-manager) ). Here is an example package which was captured by wireshark: 
+The installation of an LG app works as follows: first, the TV downloads the app package file, and second it retrieves the license information (as stated [above](#license-manager)). Here is an example package which was captured by wireshark: 
 
 ```
 $ file example.ipk
@@ -513,6 +513,31 @@ $ tar -xzvf data.tar.gz
 ./usr/palm/packages/ard.mediathek/ARD_130x130.png
 ./usr/palm/packages/ard.mediathek/packageinfo.json
 ```
+
+The `index.html` is an encrypted file which contains binary and xml parts:
+```
+NCGFILE_HEADER/*binary_sequence_1*/
+<ncgxmlhdr>
+        <content>
+                <source></source>
+                <sid>0123</sid>
+                <cid>654078D17A7BB4EF6EE1088B0337BC49</cid>
+                <encryption range="-1">1</encryption>
+                <packdate>2016-10-26T21:48:13Z</packdate>
+        </content>
+        <license>
+                <url>http://url</url>
+        </license>
+</ncgxmlhdr>/*binary_sequence_2*/
+```
+Presumably, the decoding is done by the shared object `libncg_agent.so.1.0.0` located in `/usr/lib/` in the firmware root. 
+
+```
+$ file libncg_agent.so.1.0.0
+libncg_agent.so.1.0: ELF 32-bit LSB shared object, ARM, version 1 (SYSV), dynamically linked, stripped
+```
+The symbols from the object file (`nm -D -C libncg_agent.so.1.0.0`) is located [here]()
+
 
 
 ## channel guide
