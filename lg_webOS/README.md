@@ -536,7 +536,7 @@ Presumably, the decoding is done by the shared object `libncg_agent.so.1.0.0` lo
 $ file libncg_agent.so.1.0.0
 libncg_agent.so.1.0: ELF 32-bit LSB shared object, ARM, version 1 (SYSV), dynamically linked, stripped
 ```
-The symbols from the object file (`nm -D -C libncg_agent.so.1.0.0`) is located [here]()
+The symbols from the object file (`nm -D -C libncg_agent.so.1.0.0`) is located [here](https://raw.githubusercontent.com/daniel-ge/h4ck/master/lg_webOS/_firmware/libncg_agent.so.1.0.0_dump.txt).
 
 
 
