@@ -536,8 +536,15 @@ Presumably, the decoding is done by the shared object `libncg_agent.so.1.0.0` lo
 $ file libncg_agent.so.1.0.0
 libncg_agent.so.1.0: ELF 32-bit LSB shared object, ARM, version 1 (SYSV), dynamically linked, stripped
 ```
-The symbols from the object file (`nm -D -C libncg_agent.so.1.0.0`) is located [here](https://raw.githubusercontent.com/daniel-ge/h4ck/master/lg_webOS/_firmware/libncg_agent.so.1.0.0_dump.txt).
+The symbol list from the object file (`nm -D -C libncg_agent.so.1.0.0`) is located [here](https://raw.githubusercontent.com/daniel-ge/h4ck/master/lg_webOS/_firmware/libncg_agent.so.1.0.0_dump.txt).
 
+A disassembler reveals several promising things:
+* `_ncg_OpenNCGHeader` seems to parse the encrypted files (NCG files),
+* `_ncg_ParseROResponse` seems to parse the license message sent from the [LG server](#license-manager),
+* the names `ncg_AES_ctr128_decrypt`, `_ncg_DecryptBlock`, and `NCG_Decrypt` sound quite interesting,
+* for `ncg_AES_set_decrypt_key` and `ncg_AES_decrypt` the disassembler states that they used cryptographic pattern Rijndael_rcon (32-bit, little endian)* - [Hmm, what does it mean?]
+
+# TODO 
 
 
 ## channel guide
