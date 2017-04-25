@@ -12,6 +12,7 @@
   - [OS update](#os-update)
   - [channel guide](#channel-guide)
   - [application update](#application-update)
+  - [firmware and app decryption](#firmware-and-app-decryption)  
 
 ## TV
 name|value
@@ -475,9 +476,44 @@ however, given the 'encrypted' portion of the filename and the fact that none of
 
 attempting to find an unencrypted version of the file by fuzzing the original URL has, so far, proved unsuccessful.
 
-## Firmware decryption
+## firmware and app decryption
 
 The decryption of the firmware file can be done by using [epk2extract](https://github.com/openlgtv/epk2extract). The resulting directory structure is [here](https://raw.githubusercontent.com/daniel-ge/h4ck/master/lg_webOS/_firmware/tree.md).
+
+The installation of an LG app works as follows: first, the TV downloads the app package file, and second it retrieves the license information (as stated [above](#license manager)). Here is an example package which was captured by wireshark: 
+
+```
+$ file example.ipk
+example.epk: Debian binary package (format 2.0)
+
+$ ar vx example.ipk
+x - debian-binary
+x - control.tar.gz
+x - data.tar.gz
+
+$ tar -xzvf control.tar.gz
+./control
+
+$ tar -xzvf data.tar.gz
+./usr/
+./usr/palm/
+./usr/palm/applications/
+./usr/palm/applications/ard.mediathek/
+./usr/palm/applications/ard.mediathek/index.html
+./usr/palm/applications/ard.mediathek/appinfo.json
+./usr/palm/applications/ard.mediathek/resources/
+./usr/palm/applications/ard.mediathek/resources/en/
+./usr/palm/applications/ard.mediathek/resources/en/appinfo.json
+./usr/palm/applications/ard.mediathek/ARD_130x130.png
+./usr/palm/applications/ard.mediathek/4469705516192820_default_splash.png
+./usr/palm/applications/ard.mediathek/ARD_300x300.png
+./usr/palm/applications/ard.mediathek/4469705512515405_default_background.png
+./usr/palm/packages/
+./usr/palm/packages/ard.mediathek/
+./usr/palm/packages/ard.mediathek/ARD_130x130.png
+./usr/palm/packages/ard.mediathek/packageinfo.json
+```
+
 
 ## channel guide
 
