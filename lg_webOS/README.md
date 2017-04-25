@@ -544,7 +544,8 @@ A disassembler reveals several promising things:
 * the names `ncg_AES_ctr128_decrypt`, `_ncg_DecryptBlock`, and `NCG_Decrypt` sound quite interesting,
 * for `ncg_AES_set_decrypt_key` and `ncg_AES_decrypt` the disassembler states that they used cryptographic pattern Rijndael_rcon (32-bit, little endian)* - [Hmm, what does it mean?]
 
-# TODO 
+# TODO
+* How to dig deeper into the decryption stuff? Is it possible to make the shared object running in an artifical environment and feed it with several NCG-files just to see how it work? 
 
 
 ## channel guide
