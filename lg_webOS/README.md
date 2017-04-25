@@ -475,6 +475,8 @@ however, given the 'encrypted' portion of the filename and the fact that none of
 
 attempting to find an unencrypted version of the file by fuzzing the original URL has, so far, proved unsuccessful.
 
+## Firmware decryption
+
 The decryption of the firmware file can be done by using [epk2extract](https://github.com/openlgtv/epk2extract). The resulting directory structure is [here](https://raw.githubusercontent.com/daniel-ge/h4ck/master/lg_webOS/_firmware/tree.md).
 
 ## channel guide
