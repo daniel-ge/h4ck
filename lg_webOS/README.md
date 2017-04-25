@@ -480,7 +480,7 @@ attempting to find an unencrypted version of the file by fuzzing the original UR
 
 The decryption of the firmware file can be done by using [epk2extract](https://github.com/openlgtv/epk2extract). The resulting directory structure is [here](https://raw.githubusercontent.com/daniel-ge/h4ck/master/lg_webOS/_firmware/tree.md).
 
-The installation of an LG app works as follows: first, the TV downloads the app package file, and second it retrieves the license information (as stated [above](#license manager)). Here is an example package which was captured by wireshark: 
+The installation of an LG app works as follows: first, the TV downloads the app package file, and second it retrieves the license information (as stated [above](#license-manager) ). Here is an example package which was captured by wireshark: 
 
 ```
 $ file example.ipk
