@@ -545,7 +545,7 @@ A disassembler reveals several promising things:
 * for `ncg_AES_set_decrypt_key` and `ncg_AES_decrypt` the disassembler states that they used cryptographic pattern Rijndael_rcon (32-bit, little endian)* - [Hmm, what does it mean?]
 
 # TODO
-* How to dig deeper into the decryption stuff? Is it possible to make the shared object running in an artifical environment and feed it with several NCG-files just to see how it work? 
+* How to dig deeper into the decryption stuff? Is it possible to make the shared object running in an artifical environment and feed it with several NCG-files just to see how it processes the data? 
 
 
 ## channel guide
